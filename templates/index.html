@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection Using ORB and SIFT</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div class="header-box">
+        <h1>Object Recognition Using ORB and SIFT</h1>
+    </div>
+    <div class="container">
+        <div class="resultContainer">
+            <img id="resultImage"></img>
+            <audio id="resultSound" autoplay>
+                <source src="/get_audio" type="audio/mpeg">
+            </audio>
+        </div>
+        <div class="modelSelect">
+            <button id="ORB" class="modelButton" onclick="modelSelect(this)" aria-pressed="true">ORB</button>
+            <button id="SIFT" class="modelButton" onclick="modelSelect(this)">SIFT</button>
+        </div>
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+</html>

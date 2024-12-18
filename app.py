@@ -102,12 +102,9 @@ def check_audio():
         if globaltts != "":
             tts = gTTS(globaltts, lang='en')
             audio_buffer = io.BytesIO()
-            tts.save("./outputs/output.mp3")
-            # tts.write_to_fp(audio_buffer)
-            # print(f"Audio buffer size: {len(audio_buffer.getvalue())} bytes")
-            # audio_buffer.seek(0)
-            os.system("start ./outputs/output.mp3")
-            yield (b'--frame\r\n'b'Content-Type: audio/mpeg\r\n\r\n' + audio_buffer.read() + b'\r\n\r\n')
+            tts.write_to_fp(audio_buffer)
+            audio_buffer.seek(0)
+            yield (audio_buffer.read())
         time.sleep(2)
 
 @app.route("/")
@@ -120,4 +117,4 @@ def get_result(modelName):
 
 @app.route("/get_audio")
 def get_audio():
-    return Response(check_audio(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(check_audio(), mimetype='audio/mp3')

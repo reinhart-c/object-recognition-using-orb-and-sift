@@ -26,6 +26,12 @@ body {
     border-radius: 1vw;
 }
 
+#resultImage {
+    width: 50vw;
+    height: 60vh;
+    border-radius: 1vw;
+}
+
 .modelSelect {
     width: 60%;
     margin: 30px;
